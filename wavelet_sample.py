@@ -3,15 +3,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import scipy.io as sio
-
 import pywt
 import pywt.data
 
-import torch
-import torchvision
+# import torch
+# import torchvision
 
 
-# Load image
+#### Load signal ####
+
 original = pywt.data.camera()
 
 Fs=1e4					# Sampling frequency (Hz)
@@ -38,7 +38,7 @@ tacho_h=signal['tacho'][0]
 
 #plt.show()
 
-#### SIGNAL SEPARATION
+#### SIGNAL SEPARATION ####
 
 m=5000
 
