@@ -22,7 +22,7 @@ T=1/ang_vel			# Rotation period (s)
 
 # Run Up, Steady Speed, Shut Down
 test_cond='Run Up'
-#sio.loadmat('C:\Users\Saber\Documents\MATLAB\M.Sc. Project\Heidari\Healthy\Fault 1\Run Up\Middle\Gear No. 3\Test 1\signal.mat')
+#sio.loadmat('signal.mat')
 signal=sio.loadmat("signal.mat")
 #print(signal.keys())
 L=len(signal['tacho'][0])
