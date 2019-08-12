@@ -29,19 +29,25 @@ L=len(signal['tacho'][0])
 time=np.arange(L)*Ts
 time_one_period=np.arange(0,T,Ts)
 #print(len(time_one_period))
+s_h=np.zeros((4,L))
+# s1_h=signal['sensor1'][0]
+s_h[0,0:]=signal['sensor1'][0]
+s_h[1,0:]=signal['sensor2'][0]
+s_h[2,0:]=signal['sensor3'][0]
+s_h[3,0:]=signal['tacho'][0]
+# s2_h=signal['sensor2'][0]
+# s3_h=signal['sensor3'][0]
+# tacho_h=signal['tacho'][0]
 
-s1_h=signal['sensor1'][0]
-s2_h=signal['sensor2'][0]
-s3_h=signal['sensor3'][0]
-tacho_h=signal['tacho'][0]
-
+# s_h=np.concatenate((s1_h,s2_h,s3_h,tacho_h))
 
 #plt.show()
 
 #### SIGNAL SEPARATION ####
 
-m=5000
+m=4000
 
+s1_h=s_h[0,0:]
 n_h=math.floor(len(s1_h)/m)
 
 print(n_h)
@@ -64,9 +70,9 @@ L,H=coeffs
 
 fig_raw=plt.figure(figsize=(12,6))
 for i in range(3):
-    ax_raw=fig_raw.add_subplot(3,1,i+1)
-    ax_raw.plot(time,s1_h)
-#fig1.show()
+    ax_raw=fig_raw.add_subplot(3,1,i+1)   
+    ax_raw.plot(time,s_h[i,:])
+plt.show()
 
 L,H=coeffs
 
